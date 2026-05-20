@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Nightreign Sorceries — Tier List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0e0d12;
+      --panel: #181722;
+      --panel-2: #1f1d2b;
+      --text: #ece9f1;
+      --muted: #9b95ad;
+      --t1: #d4a64a;
+      --t2: #7fb069;
+      --t3: #c98a4b;
+      --t4: #a14545;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.45;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0 0 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .sub {
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-size: 14px;
+    }
+
+    .tier {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      align-items: stretch;
+      margin-bottom: 14px;
+      background: var(--panel);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #2a2738;
+    }
+
+    .label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 18px 8px;
+      font-weight: 700;
+      text-align: center;
+      color: #1a1820;
+    }
+
+    .label .rank {
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    .label .name {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 6px;
+    }
+
+    .t1 .label {
+      background: var(--t1);
+    }
+
+    .t2 .label {
+      background: var(--t2);
+    }
+
+    .t3 .label {
+      background: var(--t3);
+    }
+
+    .t4 .label {
+      background: var(--t4);
+    }
+
+    .spells {
+      padding: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-content: flex-start;
+    }
+
+    .spell {
+      background: var(--panel-2);
+      border: 1px solid #2f2c3f;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 14px;
+      min-width: 160px;
+    }
+
+    .spell .note {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    footer {
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>Nightreign Sorceries</h1>
+
+    <div id="tiers"></div>
+
+  </div>
+
+  <script>
+    const spells = [
+      // Tier 1 — Use This
+      { name: "Rennala's Full Moon", tier: 1, note: "Magic debuff, great dmg and range" },
+      { name: "Ranni's Dark Moon", tier: 1, note: "Less dmg than Rennala's but with freeze" },
+      { name: "Comet", tier: 1, note: "Good dmg, range and is piercing" },
+      { name: "Glintstone Cometshard", tier: 1, note: "Good dmg, range and is piercing" },
+      { name: "Cannon of Haima", tier: 1, note: "Good dmg, range and aoe" },
+      { name: "Stars of Ruin", tier: 1, note: "Good dmg, range" },
+
+      // Tier 2 — Pretty Good
+      { name: "Night Comet", tier: 2, note: "Great for rezzing, doesn't get input read" },
+      { name: "Carian Slicer", tier: 2, note: "Amazing dmg, small range" },
+      { name: "Ancient Death Rancor", tier: 2, note: "Decent tracking good range" },
+      { name: "Glintstone Icecrag", tier: 2, note: "Lower dmg but has freeze" },
+      { name: "Comet Azur", tier: 2, note: "Amazing dmg when up close. Long animation lock and huge mana cost" },
+      { name: "Gavel of Haima", tier: 2, note: "Small range, good dmg" },
+      { name: "Shattering Crystal", tier: 2, note: "Great dmg, short range, mana costly" },
+      { name: "Magma Shot", tier: 2, note: "Good dmg, not the best range (scales with fire not magic)" },
+      { name: "Collapsing Stars", tier: 2, note: "Good dmg and range" },
+      { name: "Carian Piercer", tier: 2, note: "Good dmg and poise dmg" },
+      { name: "Swift Glintstone Shard", tier: 2, note: "Spammable spell" },
+      { name: "Great Glintstone Shard", tier: 2, note: "Spammable spell" },
+
+      { name: "Great Oracular Bubble", tier: 2, note: "Good dmg but slow" },
+
+      // Tier 3 — If You Have To
+      { name: "Rancorcall", tier: 3, note: "Slow projectile, not great dmg" },
+      { name: "Zamor Ice Storm", tier: 3, note: "Small range, good dmg and freeze" },
+      { name: "Roiling Magma", tier: 3, note: "Decent dmg when direct hit. Explosion is too hard to hit" },
+      { name: "Meteorite of Astel", tier: 3, note: "Too hard to hit on small targets" },
+      { name: "Adula's Moonblade", tier: 3, note: "Low dmg and range, but has freeze" },
+      { name: "Rock Sling", tier: 3, note: "Too hard to hit on small targets" },
+      { name: "Shatter Earth", tier: 3, note: "Great dmg, low range, long animation" },
+      { name: "Crystal Burst", tier: 3, note: "Decent dmg when melee" },
+      { name: "Carian Greatsword", tier: 3, note: "Not enough range nor dmg" },
+      { name: "Glintstone Pebble", tier: 3, note: "Spammable spell" },
+      { name: "Glintstone Arc", tier: 3, note: "Low dmg only good for clearing trash" },
+      { name: "Crystal Barrage", tier: 3, note: "Alright dmg and range" },
+      { name: "Carian Phalanx", tier: 3, note: "Good dmg but not as main spell" },
+      { name: "Greatblade Phalanx", tier: 3, note: "Good dmg but not as main spell" },
+      { name: "Rock Blaster", tier: 3, note: "Melee range long animation, can melt bosses in an opening" },
+      { name: "Explosive Ghostflame", tier: 3, note: "Small range on the explosion, with lingering does do good dmg" },
+      { name: "Gravity Well", tier: 3, note: "Spammable spell" },
+      { name: "Night Shard", tier: 3, note: "Spammable spell" },
+      { name: "Tibia's Summons", tier: 3, note: "Good dmg, hard to hit on mobile bosses, kinda slow" },
+      { name: "Terra Magica", tier: 3, note: "Gives 15% dmg boost while in it" },
+
+      // Tier 4 — Don't Use
+      { name: "Glintstone Stars", tier: 4, note: "" },
+      { name: "Founding Rain of Stars", tier: 4, note: "" },
+      { name: "Magic Glintblade", tier: 4, note: "" },
+      { name: "Loretta's Greatbow", tier: 4, note: "" },
+      { name: "Loretta's Mastery", tier: 4, note: "" },
+      { name: "Gelmir's Fury", tier: 4, note: "" },
+      { name: "Rykard's Rancor", tier: 4, note: "" },
+      { name: "Frozen Armament", tier: 4, note: "" },
+      { name: "Scholar's Armament", tier: 4, note: "" },
+      { name: "Freezing Mist", tier: 4, note: "" },
+      { name: "Star Shower", tier: 4, note: "" },
+      { name: "Shard Spiral", tier: 4, note: "" },
+      { name: "Crystal Torrent", tier: 4, note: "" },
+      { name: "Magic Downpour", tier: 4, note: "" },
+      { name: "Glintblade Phalanx", tier: 4, note: "" },
+      { name: "Meteorite", tier: 4, note: "" },
+      { name: "Briars of Punishment", tier: 4, note: "" },
+      { name: "Ambush Shard", tier: 4, note: "" },
+      { name: "Scholar's Shield", tier: 4, note: "" },
+      { name: "Oracle Bubbles", tier: 4, note: "" },
+      { name: "Thops's Barrier", tier: 4, note: "" },
+      { name: "Carian Retaliation", tier: 4, note: "" },
+      { name: "Eternal Darkness", tier: 4, note: "" },
+      { name: "Night Maiden's Mist", tier: 4, note: "" },
+      { name: "Briars of Sin", tier: 4, note: "" },
+      { name: "Crystal Release", tier: 4, note: "" },
+    ];
+
+    const tierMeta = {
+      1: { name: "Use This", cls: "t1" },
+      2: { name: "Pretty Good", cls: "t2" },
+      3: { name: "If You Have To", cls: "t3" },
+      4: { name: "Don't Use", cls: "t4" },
+    };
+
+    const root = document.getElementById("tiers");
+    for (const t of [1, 2, 3, 4]) {
+      const inTier = spells.filter(s => s.tier === t);
+      const row = document.createElement("div");
+      row.className = `tier ${tierMeta[t].cls}`;
+      row.innerHTML = `
+        <div class="label">
+          <div class="rank">${t}</div>
+          <div class="name">${tierMeta[t].name}</div>
+        </div>
+        <div class="spells">
+          ${inTier.map(s => `
+            <div class="spell">
+              ${s.name}
+              ${s.note ? `<span class="note">${s.note}</span>` : ""}
+            </div>
+          `).join("")}
+        </div>
+      `;
+      root.appendChild(row);
+    }
+  </script>
+</body>
+
+</html>
