@@ -4,69 +4,85 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nightreign Sorceries — Tier List</title>
+  <title>Nightreign sorceries: tier list</title>
   <meta name="description"
-    content="Tier list of sorceries in Elden Ring Nightreign. Ranked by me for use as main spell during a run.">
-  <meta name="theme-color" content="#0e0d12">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Nightreign Sorceries — Tier List">
+    content="Tier list of sorceries in Elden Ring Nightreign. Ranked by me for use as main spell during a run." />
+  <link rel="canonical" href="https://sorceries.jor.dev/" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f3f3f3" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#121417" media="(prefers-color-scheme: dark)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sorceries.jor.dev/" />
+  <meta property="og:title" content="Nightreign sorceries: tier list" />
   <meta property="og:description"
-    content="Tier list of sorceries in Elden Ring Nightreign. Ranked by me for use as main spell during a run.">
-  <link rel="canonical" href="https://nightreign-spells.jor.dev/">
+    content="Tier list of sorceries in Elden Ring Nightreign. Ranked by me for use as main spell during a run." />
+  <meta property="og:image" content="https://sorceries.jor.dev/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nightreign sorceries: tier list, with the jor.dev wordmark." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nightreign sorceries: tier list" />
+  <meta name="twitter:description"
+    content="Tier list of sorceries in Elden Ring Nightreign. Ranked by me for use as main spell during a run." />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="./favicon.ico" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+  <link rel="preload" href="./brand/fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./brand/fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./brand/fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="./brand/tokens.css" />
+  <link rel="stylesheet" href="./brand/base.css" />
+  <script src="./brand/theme.js"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "Nightreign sorceries: tier list",
+      "headline": "Nightreign sorceries: tier list",
+      "url": "https://sorceries.jor.dev/",
+      "mainEntityOfPage": "https://sorceries.jor.dev/",
+      "description": "Tier list of sorceries in Elden Ring Nightreign. Ranked by me for use as main spell during a run.",
+      "image": "https://sorceries.jor.dev/og-image.png",
+      "about": { "@type": "VideoGame", "name": "Elden Ring Nightreign" },
+      "author": { "@type": "Person", "name": "Jor Sanders", "url": "https://jor.dev" }
+    }
+  </script>
   <style>
     :root {
-      --bg: #0e0d12;
-      --panel: #181722;
-      --panel-2: #1f1d2b;
-      --text: #ece9f1;
-      --muted: #9b95ad;
       --t1: #d4a64a;
       --t2: #7fb069;
       --t3: #c98a4b;
       --t4: #a14545;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.45;
+      --on-tier: var(--ink);
+      --on-tier-4: var(--paper);
     }
 
     .wrap {
-      max-width: 1100px;
+      max-width: var(--content-width);
       margin: 0 auto;
-      padding: 32px 24px 80px;
+      padding: var(--space-12) var(--space-4) var(--space-12);
     }
 
     h1 {
-      font-size: 28px;
-      margin: 0 0 4px;
-      letter-spacing: 0.5px;
+      margin-bottom: var(--space-3);
     }
 
     .sub {
-      color: var(--muted);
-      margin-bottom: 28px;
-      font-size: 14px;
+      margin-bottom: var(--space-10);
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      line-height: var(--leading-loose);
     }
 
     .tier {
       display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 16px;
-      align-items: stretch;
-      margin-bottom: 14px;
-      background: var(--panel);
-      border-radius: 10px;
+      grid-template-columns: 7rem 1fr;
+      margin-bottom: var(--space-4);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       overflow: hidden;
-      border: 1px solid #2a2738;
     }
 
     .label {
@@ -74,22 +90,30 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 18px 8px;
+      padding: var(--space-5) var(--space-2);
       font-weight: 700;
+      letter-spacing: 0;
       text-align: center;
-      color: #1a1820;
+      color: var(--on-tier);
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
     }
 
     .label .rank {
-      font-size: 36px;
-      line-height: 1;
+      font-size: var(--text-2xl);
+      line-height: var(--leading-tight);
     }
 
     .label .name {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 6px;
+      margin-top: var(--space-2);
+      font-size: var(--text-sm);
     }
 
     .t1 .label {
@@ -106,52 +130,89 @@
 
     .t4 .label {
       background: var(--t4);
+      color: var(--on-tier-4);
     }
 
     .spells {
-      padding: 14px;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
       align-content: flex-start;
+      gap: var(--space-2);
+      padding: var(--space-4);
+      list-style: none;
     }
 
     .spell {
-      background: var(--panel-2);
-      border: 1px solid #2f2c3f;
-      border-radius: 6px;
-      padding: 8px 12px;
-      font-size: 14px;
-      min-width: 160px;
+      min-width: 10rem;
+      max-width: none;
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
     }
 
     .spell .note {
       display: block;
-      color: var(--muted);
-      font-size: 12px;
-      margin-top: 2px;
+      margin-top: var(--space-1);
+      color: var(--text-muted);
+      font-size: var(--text-xs);
+      font-weight: 400;
     }
 
-    footer {
-      margin-top: 32px;
-      color: var(--muted);
-      font-size: 12px;
+    @media (max-width: 40rem) {
+      .tier {
+        grid-template-columns: 1fr;
+      }
+
+      .label {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: var(--space-3);
+        padding: var(--space-3) var(--space-4);
+      }
+
+      .label .rank {
+        font-size: var(--text-xl);
+      }
+
+      .label .name {
+        margin-top: 0;
+      }
+
+      .spell {
+        flex: 1 1 100%;
+        min-width: 0;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <h1>Nightreign Sorceries</h1>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand-link" href="https://jor.dev">
+      <img class="only-light" src="./brand/logo/wordmark.svg" alt="jor.dev" />
+      <img class="only-dark" src="./brand/logo/wordmark-on-dark.svg" alt="jor.dev" />
+    </a>
+    <div class="theme-picker" role="group" aria-label="Color scheme">
+      <button type="button" data-theme-choice="auto" aria-pressed="true">Auto</button>
+      <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+      <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <h1>Nightreign sorceries</h1>
     <p class="sub">Ranked by me for use as main spell during a run.</p>
 
     <div id="tiers"></div>
-
-  </div>
+  </main>
 
   <script>
     const spells = [
-      // Tier 1 — Use This
+      // Tier 1: Use this
       { name: "Rennala's Full Moon", tier: 1, note: "Magic debuff, great dmg and range" },
       { name: "Ranni's Dark Moon", tier: 1, note: "Less dmg than Rennala's but with freeze" },
       { name: "Comet", tier: 1, note: "Good dmg, range and is piercing" },
@@ -159,7 +220,7 @@
       { name: "Cannon of Haima", tier: 1, note: "Good dmg, range and aoe" },
       { name: "Stars of Ruin", tier: 1, note: "Good dmg, great rezzing, range" },
 
-      // Tier 2 — Pretty Good
+      // Tier 2: Pretty good
       { name: "Night Comet", tier: 2, note: "Great for rezzing, doesn't get input read" },
       { name: "Carian Slicer", tier: 2, note: "Amazing dmg, small range" },
       { name: "Ancient Death Rancor", tier: 2, note: "Decent tracking good range" },
@@ -174,7 +235,7 @@
       { name: "Great Glintstone Shard", tier: 2, note: "Spammable spell" },
       { name: "Great Oracular Bubble", tier: 2, note: "Good dmg but slow" },
 
-      // Tier 3 — If You Have To
+      // Tier 3: If you have to
       { name: "Rancorcall", tier: 3, note: "Slow projectile, not great dmg" },
       { name: "Zamor Ice Storm", tier: 3, note: "Small range, good dmg and freeze" },
       { name: "Roiling Magma", tier: 3, note: "Decent dmg when direct hit. Explosion is too hard to hit" },
@@ -199,7 +260,7 @@
       { name: "Tibia's Summons", tier: 3, note: "Good dmg, hard to hit on mobile bosses, kinda slow" },
       { name: "Terra Magica", tier: 3, note: "Gives 15% dmg boost while in it" },
 
-      // Tier 4 — Don't Use
+      // Tier 4: Don't use
       { name: "Glintstone Stars", tier: 4, note: "" },
       { name: "Founding Rain of Stars", tier: 4, note: "" },
       { name: "Gelmir's Fury", tier: 4, note: "" },
@@ -226,34 +287,45 @@
     ];
 
     const tierMeta = {
-      1: { name: "Use This", cls: "t1" },
-      2: { name: "Pretty Good", cls: "t2" },
-      3: { name: "If You Have To", cls: "t3" },
-      4: { name: "Don't Use", cls: "t4" },
+      1: { name: "Use this", cls: "t1" },
+      2: { name: "Pretty good", cls: "t2" },
+      3: { name: "If you have to", cls: "t3" },
+      4: { name: "Don't use", cls: "t4" },
     };
 
     const root = document.getElementById("tiers");
-    for (const t of [1, 2, 3, 4]) {
-      const inTier = spells.filter(s => s.tier === t);
-      const row = document.createElement("div");
-      row.className = `tier ${tierMeta[t].cls}`;
-      row.innerHTML = `
-        <div class="label">
-          <div class="rank">${t}</div>
-          <div class="name">${tierMeta[t].name}</div>
-        </div>
-        <div class="spells">
-          ${inTier.map(s => `
-            <div class="spell">
-              ${s.name}
-              ${s.note ? `<span class="note">${s.note}</span>` : ""}
-            </div>
+    for (const tier of [1, 2, 3, 4]) {
+      const inTier = spells.filter(spell => spell.tier === tier);
+      const section = document.createElement("section");
+      section.className = `tier ${tierMeta[tier].cls}`;
+      section.setAttribute("aria-labelledby", `tier-${tier}`);
+      section.innerHTML = `
+        <h2 class="label" id="tier-${tier}">
+          <span class="rank"><span class="visually-hidden">Tier </span>${tier}</span>
+          <span class="name">${tierMeta[tier].name}</span>
+        </h2>
+        <ul class="spells">
+          ${inTier.map(spell => `
+            <li class="spell">
+              ${spell.name}
+              ${spell.note ? `<span class="note">${spell.note}</span>` : ""}
+            </li>
           `).join("")}
-        </div>
+        </ul>
       `;
-      root.appendChild(row);
+      root.appendChild(section);
     }
   </script>
+
+  <footer class="site-footer">
+    <p>This is my tier list of every sorcery in Elden Ring Nightreign, ranked on how well it works as the main spell for a run: damage, range, speed and how easy it is to land. The rankings are my own opinion from my own runs, so disagree freely.</p>
+    <p class="site-footer-tagline">Provided free of charge, without tracking. For the love of the game.</p>
+    <p class="site-footer-meta">
+      <span>Made by <a href="https://jor.dev">Jor Sanders</a></span>
+      <a href="https://github.com/JorSanders/Sorceries">Source on GitHub</a>
+      <a href="https://github.com/JorSanders/Sorceries/issues">Found a problem?</a>
+    </p>
+  </footer>
 </body>
 
 </html>
